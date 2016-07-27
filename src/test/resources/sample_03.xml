@@ -1,0 +1,52 @@
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" Destination="https://localhost:9443/saml/verify" ID="_64ffce3a-3342-404e-83c4-8034bc2b0941" InResponseTo="identifier_1" IssueInstant="2016-07-26T07:55:22.893Z" Version="2.0">
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://idmadfsdev.northeurope.cloudapp.azure.com/adfs/services/trust</Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <EncryptedAssertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+    <Assertion ID="_8ae798d7-0995-4e26-b835-96ac4d5525d1" IssueInstant="2016-07-26T07:55:22.893Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+      <Issuer>http://idmadfsdev.northeurope.cloudapp.azure.com/adfs/services/trust</Issuer>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+          <ds:Reference URI="#_8ae798d7-0995-4e26-b835-96ac4d5525d1">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+            <ds:DigestValue>iSK5k4xTX32NLATldTvze1ZKI63Ojw6sUaBV6KL3M6U=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>ISrqZgmMDxuTnb5QV7yloNuZXqVHX1bBYHbN/MmnBBFli2JYvU95QnDgintpWKUglrwyxn9fSBsmRh22wTYfuYPctYN4G+aCWB5adW18mwMY5k4hAyqkFCIZTQlsCIt5cM6aNDdXctsGSc+TUf7MOVdZbSFbC7gYrS/M720w3Z48lLwX4X4S9FYgMtldvZlpbItPR5y4w/0EX/zilidgl8k308/Lj1nHMPOm13srEgYXYcQOCdgvPBg+IRBUAGh8G7mYhvpwN7aM+IlIY9wAqo/04hZKfFh6xzyjiQhuZsIuh5vDgd4WUqhlpPrFe9EwpFJt1TPmkt8XM+DDvUDpZA==</ds:SignatureValue>
+        <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDDjCCAfagAwIBAgIQL16XCHPRS7BPbfXytUOyojANBgkqhkiG9w0BAQsFADBDMUEwPwYDVQQDEzhBREZTIFNpZ25pbmcgLSBpZG1hZGZzZGV2Lm5vcnRoZXVyb3BlLmNsb3VkYXBwLmF6dXJlLmNvbTAeFw0xNjA3MTMxMTM2MDBaFw0xNzA3MTMxMTM2MDBaMEMxQTA/BgNVBAMTOEFERlMgU2lnbmluZyAtIGlkbWFkZnNkZXYubm9ydGhldXJvcGUuY2xvdWRhcHAuYXp1cmUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApmt8JZcEMYkvhf7GGK7oPkpgWZnxnSTYvtdiqsZqczyF7HY1Jc2cz9oi64ZwO7fiLzO/uhSPnReRn+rOAQhCTFzLo87fpytoS9Cgp9Y+G6zNHER8vll4yAn1etrG88oQqY3Bb0O5yce0GeML5VVl4ka2dAex/0LLkJBukLB/GIqSZEoLkRQ2D5L9gss2yYDWKtGhRZ4WIGT6jy+REG7QXb4oODKyBaqjOMUK/Cww/iEOPhen/JxxSHnO8XPfGr2+3AMsyO3XBKjGq6CpHrhLH2rg1e/bSHfYvdQLC2bTN20gyrMWPoTqYjYfmlzck7M+pF7uWHcRNdQvg+3LDCmD2QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAtOagAlj7Rp505oxlpq9q1SxCrQ074ZrLFcuZ2NifLKHoRffV5nRTtU+3hNMboDTNRiql5hiExzrwqnloYzua5veaf2WbGhg84b9+BYov93Oe3IRu4tKLTMe5eS/Po6tF6VUPcJXv9AyLKVVCJO6NNYGKBSdFYCZQI/5C0scEp2E1k4/jI56jHa8Irr9hXLDqiq4bYhhrGTY9dt+4OG2U1KbE+Um+CqyVoAUIGjFkZgVG6lBVM3IVquuV86MiUS5xckqjpa5gw7qhiC9DGpBQPYsm9/vTgrl3dSjoWyxjAdMkvsxruHes5yxiQvTarStv9UP3bvo6voBJHPAazVrlW</ds:X509Certificate>
+          </ds:X509Data>
+        </KeyInfo>
+      </ds:Signature>
+      <Subject>
+        <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">artur.opala@siili.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+          <SubjectConfirmationData InResponseTo="identifier_1" NotOnOrAfter="2016-07-26T08:00:22.893Z" Recipient="https://localhost:9443/saml/verify"/>
+        </SubjectConfirmation>
+      </Subject>
+      <Conditions NotBefore="2016-07-26T07:55:22.893Z" NotOnOrAfter="2016-07-26T08:55:22.893Z">
+        <AudienceRestriction>
+          <Audience>https://idm.siili.com/SAML2/trust</Audience>
+        </AudienceRestriction>
+      </Conditions>
+      <AttributeStatement>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress">
+          <AttributeValue>artur.opala@siili.com</AttributeValue>
+        </Attribute>
+      </AttributeStatement>
+      <AuthnStatement AuthnInstant="2016-07-26T07:55:22.788Z" SessionIndex="_8ae798d7-0995-4e26-b835-96ac4d5525d1">
+        <AuthnContext>
+          <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</AuthnContextClassRef>
+        </AuthnContext>
+      </AuthnStatement>
+    </Assertion>
+  </EncryptedAssertion>
+</samlp:Response>
