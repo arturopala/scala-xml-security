@@ -1,6 +1,6 @@
-### Scala XML Security
+# Scala XML Security
 
-#Main Features
+### Main Features
 -   sign xml document, 
 -   validate signature on xml document, 
 -   encrypt xml document, 
