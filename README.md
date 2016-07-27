@@ -1,7 +1,7 @@
 ### Scala XML Security
 
-Handy utility library providing key functions related to secure XML document: 
--   sign, 
--   validate signature, 
--   encrypt, 
--   decrypt
+#Main Features
+-   sign xml document, 
+-   validate signature on xml document, 
+-   encrypt xml document, 
+-   decrypt xml document
