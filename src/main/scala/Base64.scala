@@ -19,7 +19,7 @@ package com.github.arturopala.xmlsecurity
 import java.nio.charset.Charset
 
 import org.json4s._
-import org.json4s.jackson.Serialization._
+import org.json4s.native.Serialization._
 
 trait Base64 {
   def encodeBase64URLSafe(string: String): String = {
@@ -31,8 +31,8 @@ trait Base64 {
   }
 
   def encodeBase64URLSafe(json: JValue): String = {
-    import org.json4s.jackson.Serialization
-    import org.json4s.jackson.Serialization.{write}
+    import org.json4s.native.Serialization
+    import org.json4s.native.Serialization.{write}
     implicit val formats = Serialization.formats(NoTypeHints)
     encodeBase64URLSafe(write(json))
   }

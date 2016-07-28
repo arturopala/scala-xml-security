@@ -25,10 +25,7 @@ libraryDependencies ++= Seq(
   "org.apache.santuario" % "xmlsec" % "2.0.7",
   "org.bouncycastle" % "bcprov-jdk15on" % "1.54",
   "org.bouncycastle" % "bcpkix-jdk15on" % "1.54",
-  "org.json4s" %% "json4s-scalaz" % "3.2.10",
-  "org.json4s" %% "json4s-jackson" % "3.2.10",
-  "org.json4s" %% "json4s-ext" % "3.2.10",
-  "org.json4s" %% "json4s-core" % "3.2.10",
+  "org.json4s" %% "json4s-native" % "3.4.0",
   "org.scalatest" %% "scalatest" % "2.2.5" % Test,
   "org.scalacheck" %% "scalacheck" % "1.12.5" % Test
 )

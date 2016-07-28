@@ -19,7 +19,7 @@ package com.github.arturopala.xmlsecurity
 import java.security.{PrivateKey, PublicKey}
 
 import org.json4s.JsonAST.JObject
-import org.json4s.jackson.JsonMethods._
+import org.json4s.native.JsonMethods._
 import org.json4s.{DefaultFormats, Formats}
 
 import scala.util.{Failure, Success, Try}
