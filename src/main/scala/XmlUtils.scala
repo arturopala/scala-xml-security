@@ -54,6 +54,12 @@ object XmlUtils {
     dom
   }
 
+  def compactDocument(dom: Document): Try[Document] = Try {
+    val clonedDom = dom.copy
+    trimWhitespace(clonedDom.getDocumentElement)
+    clonedDom
+  }
+
   def prettyPrint(indent: Int)(dom: Document): Try[String] = Try {
     val xPath: XPath = xpathFactory.newXPath()
     val nodeList: NodeList = xPath
@@ -74,6 +80,29 @@ object XmlUtils {
     val stringWriter: StringWriter = new StringWriter()
     transformer.transform(new DOMSource(dom), new StreamResult(stringWriter))
     stringWriter.toString
+  }
+
+  def printDocument(dom: Document): Try[String] = Try {
+    val clonedDom = dom.copy
+    trimWhitespace(clonedDom.getDocumentElement)
+    val xPath: XPath = xpathFactory.newXPath()
+    val transformerFactory: TransformerFactory = TransformerFactory.newInstance()
+    val transformer: Transformer = transformerFactory.newTransformer()
+    transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8")
+    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes")
+    val stringWriter: StringWriter = new StringWriter()
+    transformer.transform(new DOMSource(clonedDom), new StreamResult(stringWriter))
+    stringWriter.toString
+  }
+
+  private def trimWhitespace(node: Node): Unit = {
+    node.getChildNodes.toSeq.foreach {
+      child =>
+        if (child.getNodeType == Node.TEXT_NODE) {
+          child.setTextContent(child.getTextContent().trim())
+        }
+        trimWhitespace(child)
+    }
   }
 
   private class XMLErrorHandler extends org.xml.sax.helpers.DefaultHandler {
