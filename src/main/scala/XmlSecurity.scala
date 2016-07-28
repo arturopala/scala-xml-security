@@ -69,12 +69,12 @@ object XmlSecurity {
     import org.apache.xml.security.signature.XMLSignature
     import org.apache.xml.security.transforms.Transforms
     val newDom = dom.copy
-    val sig: XMLSignature = new XMLSignature(newDom, "", signatureAlgorithm)
+    val sig: XMLSignature = new XMLSignature(newDom, "", signatureAlgorithm, Transforms.TRANSFORM_C14N_EXCL_OMIT_COMMENTS)
     val root: Element = newDom.getDocumentElement()
     root.appendChild(sig.getElement())
     val transforms: Transforms = new Transforms(newDom)
     transforms.addTransform(Transforms.TRANSFORM_ENVELOPED_SIGNATURE)
-    transforms.addTransform(Transforms.TRANSFORM_C14N_WITH_COMMENTS)
+    transforms.addTransform(Transforms.TRANSFORM_C14N_EXCL_OMIT_COMMENTS)
     sig.addDocument("", transforms, digestAlgorithm)
     publicKey foreach sig.addKeyInfo
     sig.sign(privateKey)
@@ -89,12 +89,12 @@ object XmlSecurity {
     import org.apache.xml.security.signature.XMLSignature
     import org.apache.xml.security.transforms.Transforms
     val newDom = dom.copy
-    val sig: XMLSignature = new XMLSignature(newDom, "", signatureAlgorithm)
+    val sig: XMLSignature = new XMLSignature(newDom, "", signatureAlgorithm, Transforms.TRANSFORM_C14N_EXCL_OMIT_COMMENTS)
     val root: Element = newDom.getDocumentElement()
     root.appendChild(sig.getElement())
     val transforms: Transforms = new Transforms(newDom)
     transforms.addTransform(Transforms.TRANSFORM_ENVELOPED_SIGNATURE)
-    transforms.addTransform(Transforms.TRANSFORM_C14N_WITH_COMMENTS)
+    transforms.addTransform(Transforms.TRANSFORM_C14N_EXCL_OMIT_COMMENTS)
     sig.addDocument("", transforms, digestAlgorithm)
     sig.addKeyInfo(cert)
     val ki: org.apache.xml.security.keys.KeyInfo = sig.getKeyInfo()
