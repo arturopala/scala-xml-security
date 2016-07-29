@@ -1,6 +1,6 @@
 name := "scala-xml-security"
 
-version := "1.0"
+version := "1.0.0-SNAPSHOT"
 
 organization := "com.github.arturopala"
 
@@ -13,12 +13,6 @@ description := "Scala XML Security - handy wrapper for org.apache.xml.security"
 scalaVersion := "2.11.8"
 
 developers := List(Developer("arturopala","Artur Opala","opala.artur@gmail.com",url("https://pl.linkedin.com/in/arturopala")))
-
-resolvers += Resolver.sonatypeRepo("snapshots")
-
-resolvers += Resolver.jcenterRepo
-
-resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 libraryDependencies ++= Seq(
   "commons-codec" % "commons-codec" % "1.10",
