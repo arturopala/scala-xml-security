@@ -134,7 +134,7 @@ import com.github.arturopala.xmlsecurity.{XmlUtils,XmlSecurity}
 
 val xml: String = ??? // some signed XML
 val document: Try[Document] = for {
-  dom     <- XmlUtils.parseDocument(xml)
+  dom    <- XmlUtils.parseDocument(xml)
   valid  <- XmlSecurity.validateSignature(dom)
 } yield valid
 ```
