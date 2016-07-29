@@ -8,10 +8,9 @@ Dealing with XML signatures or encryption requires usually lot of non-trivial se
 Main Features
 =============
 
--   sign xml document, 
--   validate signature on xml document, 
--   encrypt xml document, 
--   decrypt xml document
+-   **signature** creation and validation, 
+-   **encryption** of XML document, 
+-   **decryption** of XML document
 
 Installation
 ============
@@ -27,11 +26,11 @@ You can find available versions here:
 Dependencies
 ------------
 This library brings into your project few transitive dependencies:
--   org.apache.santuario:xmlsec
--   org.bouncycastle:bcprov-jdk15on
--   org.bouncycastle:bcpkix-jdk15on
--   org.json4s:json4s-native
--   commons-codec:commons-codec
+-   org.apache.santuario:xmlsec - [Apache XML Security utils](http://santuario.apache.org/javaindex.html)
+-   org.bouncycastle:bcprov-jdk15on - [Cryptography provider](https://www.bouncycastle.org/)
+-   org.bouncycastle:bcpkix-jdk15on - [PKI support](https://www.bouncycastle.org/)
+-   org.json4s:json4s-native - [Scala JSON library](https://github.com/json4s/json4s)
+-   commons-codec:commons-codec - [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/)
 
 Usage
 =====
