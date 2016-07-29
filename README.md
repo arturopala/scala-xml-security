@@ -181,4 +181,34 @@ val document: Try[Document] = for {
 } yield decrypted
 ```
 
+Handy implicit methods - DOM api extensions
+-----------------------------------------------
+
+```scala
+import com.github.arturopala.xmlsecurity.XmlOps._
+```
+
+### org.w3c.dom.Document
+
+```scala
+def selectNodes(query: String, ns: Option[NamespaceContext] = None): Seq[Node]
+def getTagTextContent(tag: String): Option[String]
+def getAttributeValue(tag: String, attribute: String): Option[String]
+def copy: Document
+```
+
+### org.w3c.dom.NodeList
+
+```scala
+def toSeq: Seq[Node]
+```
+
+### org.w3c.dom.Node
+
+```scala
+def children: Seq[Node]
+def attributes: collection.Map[String, String]
+def toJson: org.json4s.JObject
+```
+
 
