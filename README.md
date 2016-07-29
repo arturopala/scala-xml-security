@@ -3,6 +3,8 @@ Scala XML Security
 
 [![Build Status](https://semaphoreci.com/api/v1/arturopala/scala-xml-security/branches/master/badge.svg)](https://semaphoreci.com/arturopala/scala-xml-security)
 
+Dealing with XML signatures or encryption requires usually lot of non-trivial setup and boilerplate code. This small library wraps necessary configuration and logic to finally expose simple but essential API.
+
 Main Features
 =============
 
@@ -21,6 +23,15 @@ libraryDependencies += "com.github.arturopala" % "scala-xml-security_2.11" % "1.
 You can find available versions here:
 
 [http://search.maven.org/#search|ga|1|a:"scala-xml-security_2.11"](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22scala-xml-security_2.11%22)
+
+Dependencies
+------------
+This library brings into your project few transitive dependencies:
+-   org.apache.santuario:xmlsec
+-   org.bouncycastle:bcprov-jdk15on
+-   org.bouncycastle:bcpkix-jdk15on
+-   org.json4s:json4s-native
+-   commons-codec:commons-codec
 
 Usage
 =====
