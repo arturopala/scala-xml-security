@@ -221,4 +221,10 @@ def attributes: collection.Map[String, String]
 def toJson: org.json4s.JObject
 ```
 
-
+Document rendering
+------------------
+API:
+```scala
+def printDocument(dom: Document): Try[String]
+def prettyPrint(indent: Int)(dom: Document): Try[String]
+```
