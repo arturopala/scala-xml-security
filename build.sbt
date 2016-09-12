@@ -1,6 +1,6 @@
 name := "scala-xml-security"
 
-version := "1.0.0"
+version := "1.0.1-SNAPSHOT"
 
 organization := "com.github.arturopala"
 
@@ -11,6 +11,8 @@ startYear := Some(2016)
 description := "Scala XML Security - handy wrapper for org.apache.xml.security"
 
 scalaVersion := "2.11.8"
+
+crossScalaVersions := Seq("2.11.8", "2.12.0-RC1")
 
 libraryDependencies ++= Seq(
   "commons-codec" % "commons-codec" % "1.10",

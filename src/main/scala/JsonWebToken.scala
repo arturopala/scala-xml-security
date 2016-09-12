@@ -52,6 +52,15 @@ trait JsonWebToken extends KeyUtils {
     }
   }
 
+  def encode(header: JObject, claims: JObject, privateKey: PrivateKey): String = {
+    val payload = encodeBase64URLSafe(compact(render(header))) + "." + encodeBase64URLSafe(compact(render(claims)))
+    (header \ "alg").extract[String] match {
+      case "RS256" =>
+        payload + "." + signSHA256(payload, privateKey)
+      case alg => throw new Exception(s"unsupported signature algorithm $alg, change to RS256")
+    }
+  }
+
   def encodeAsRS256(claims: String, privateKey: PrivateKey): String = {
     val header = """{"alg":"RS256","type":"jws"}"""
     val payload = encodeBase64URLSafe(header) + "." + encodeBase64URLSafe(claims)
