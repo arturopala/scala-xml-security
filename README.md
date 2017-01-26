@@ -21,7 +21,7 @@ libraryDependencies += "com.github.arturopala" % "scala-xml-security_2.12" % "1.
 
 You can find available versions here:
 
-[http://search.maven.org/#search|ga|1|a:"scala-xml-security_2.12"](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22scala-xml-security_2.12%22)
+[http://search.maven.org/#search|ga|1|scala-xml-security](http://search.maven.org/#search%7Cga%7C1%7Cscala-xml-security)
 
 Dependencies
 ------------
