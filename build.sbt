@@ -1,6 +1,6 @@
 name := "scala-xml-security"
 
-version := "1.0.1-SNAPSHOT"
+version := "1.1.0-SNAPSHOT"
 
 organization := "com.github.arturopala"
 
@@ -10,18 +10,16 @@ startYear := Some(2016)
 
 description := "Scala XML Security - handy wrapper for org.apache.xml.security"
 
-scalaVersion := "2.11.8"
-
-crossScalaVersions := Seq("2.11.8", "2.12.0-RC1")
+scalaVersion := "2.12.1"
 
 libraryDependencies ++= Seq(
   "commons-codec" % "commons-codec" % "1.10",
-  "org.apache.santuario" % "xmlsec" % "2.0.7",
-  "org.bouncycastle" % "bcprov-jdk15on" % "1.54",
-  "org.bouncycastle" % "bcpkix-jdk15on" % "1.54",
-  "org.json4s" %% "json4s-native" % "3.4.0",
-  "org.scalatest" %% "scalatest" % "2.2.5" % Test,
-  "org.scalacheck" %% "scalacheck" % "1.12.5" % Test
+  "org.apache.santuario" % "xmlsec" % "2.0.8",
+  "org.bouncycastle" % "bcprov-jdk15on" % "1.56",
+  "org.bouncycastle" % "bcpkix-jdk15on" % "1.56",
+  "org.json4s" %% "json4s-native" % "3.5.0",
+  "org.scalatest" %% "scalatest" % "3.0.1" % Test,
+  "org.scalacheck" %% "scalacheck" % "1.13.4" % Test
 )
 
 import scalariform.formatter.preferences._
@@ -29,8 +27,6 @@ import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
 ScalariformKeys.preferences := PreferencesImporterExporter.loadPreferences(baseDirectory.value / "project" / "formatterPreferences.properties" toString)
-
-coverageEnabled := false
 
 fork := true
 
