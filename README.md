@@ -47,7 +47,7 @@ import scala.util.Try
 import org.w3c.dom.Document
 import com.github.arturopala.xmlsecurity.XmlUtils
 
-val xml: String = "<hello world="!"></hello>" //some XML
+val xml: String = ??? //some XML string
 val dom: Try[Document] = XmlUtils.parseDocument(xml)
 ```
 
@@ -66,7 +66,7 @@ import org.w3c.dom.Document
 import com.github.arturopala.xmlsecurity.XmlUtils
 
 def getResource(r: String): URL = classOf[Document].getResource(r)
-val xml: String = ??? //some XML
+val xml: String = ??? //some XML string
 val document: Try[Document] = for {
   schema    <- XmlUtils.loadSchema(
                   getResource("/saml-schema-protocol-2.0.xsd"), // relevant schemas
@@ -105,7 +105,7 @@ import com.github.arturopala.xmlsecurity.{XmlUtils,XmlSecurity}
 
 val keyPair: KeyPair = ???
 val cerificate: X509Certificate = ???
-val xml: String = "<hello world="!"></hello>" //some XML
+val xml: String = ??? //some XML string
 val document: Try[Document] = for {
   dom     <- XmlUtils.parseDocument(xml)
   signed  <- XmlSecurity.signDocument(
@@ -131,7 +131,7 @@ import scala.util.Try
 import org.w3c.dom.Document
 import com.github.arturopala.xmlsecurity.{XmlUtils,XmlSecurity}
 
-val xml: String = ??? // some signed XML
+val xml: String = ??? // some signed XML string
 val document: Try[Document] = for {
   dom    <- XmlUtils.parseDocument(xml)
   valid  <- XmlSecurity.validateSignature(dom)
@@ -158,7 +158,7 @@ import javax.security.cert.X509Certificate
 import com.github.arturopala.xmlsecurity.{XmlUtils,XmlSecurity}
 
 val cerificate: X509Certificate = ???
-val xml: String = ??? // some XML
+val xml: String = ??? // some XML string
 val document: Try[Document] = for {
   dom       <- XmlUtils.parseDocument(xml)
   encrypted <- XmlSecurity.encryptDocument(
@@ -184,7 +184,7 @@ import java.security.KeyPair
 import com.github.arturopala.xmlsecurity.{XmlUtils,XmlSecurity}
 
 val keyPair: KeyPair = ???
-val xml: String = ??? // some XML
+val xml: String = ??? // some XML string
 val document: Try[Document] = for {
   dom       <- XmlUtils.parseDocument(xml)
   decrypted <- XmlSecurity.decryptDocument(keyPair.getPrivate)(dom)
