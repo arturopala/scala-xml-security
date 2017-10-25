@@ -89,7 +89,7 @@ object XmlUtils {
     val transformerFactory: TransformerFactory = TransformerFactory.newInstance()
     val transformer: Transformer = transformerFactory.newTransformer()
     transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8")
-    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, if(omitXmlDec) "yes" else "no")
+    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, if (omitXmlDec) "yes" else "no")
     val stringWriter: StringWriter = new StringWriter()
     transformer.transform(new DOMSource(clonedDom), new StreamResult(stringWriter))
     stringWriter.toString
