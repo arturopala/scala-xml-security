@@ -16,7 +16,7 @@ Installation
 ============
 Add the following line to your project description in `build.sbt`:
 ```
-libraryDependencies += "com.github.arturopala" % "scala-xml-security_2.12" % "1.1.0"
+libraryDependencies += "com.github.arturopala" % "scala-xml-security_2.12" % "1.2.0"
 ```
 
 You can find available versions here:
