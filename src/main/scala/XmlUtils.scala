@@ -82,14 +82,14 @@ object XmlUtils {
     stringWriter.toString
   }
 
-  def printDocument(dom: Document): Try[String] = Try {
+  def printDocument(dom: Document, omitXmlDec: Boolean = true): Try[String] = Try {
     val clonedDom = dom.copy
     trimWhitespace(clonedDom.getDocumentElement)
     val xPath: XPath = xpathFactory.newXPath()
     val transformerFactory: TransformerFactory = TransformerFactory.newInstance()
     val transformer: Transformer = transformerFactory.newTransformer()
     transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8")
-    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes")
+    transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, if(omitXmlDec) "yes" else "no")
     val stringWriter: StringWriter = new StringWriter()
     transformer.transform(new DOMSource(clonedDom), new StreamResult(stringWriter))
     stringWriter.toString
