@@ -19,47 +19,38 @@ package com.github.arturopala.xmlsecurity
 import java.nio.charset.Charset
 
 import org.json4s._
-import org.json4s.native.Serialization._
 
 trait Base64 {
-  def encodeBase64URLSafe(string: String): String = {
+  def encodeBase64URLSafe(string: String): String =
     org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(string.getBytes("UTF-8"))
-  }
 
-  def encodeBase64(string: String): String = {
+  def encodeBase64(string: String): String =
     org.apache.commons.codec.binary.Base64.encodeBase64String(string.getBytes("UTF-8"))
-  }
 
   def encodeBase64URLSafe(json: JValue): String = {
     import org.json4s.native.Serialization
-    import org.json4s.native.Serialization.{write}
+    import org.json4s.native.Serialization.write
     implicit val formats = Serialization.formats(NoTypeHints)
     encodeBase64URLSafe(write(json))
   }
 
-  def decodeBase64URLSafe(string: String): String = {
+  def decodeBase64URLSafe(string: String): String =
     new String(org.apache.commons.codec.binary.Base64.decodeBase64(string), Charset.forName("UTF-8"))
-  }
 
-  def decodeBase64(string: String): String = {
+  def decodeBase64(string: String): String =
     new String(org.apache.commons.codec.binary.Base64.decodeBase64(string), Charset.forName("UTF-8"))
-  }
 
-  def decodeBase64URLSafeAsBytes(string: String): Array[Byte] = {
+  def decodeBase64URLSafeAsBytes(string: String): Array[Byte] =
     org.apache.commons.codec.binary.Base64.decodeBase64(string)
-  }
 
-  def encodeBase64URLSafe(binary: Array[Byte]): String = {
+  def encodeBase64URLSafe(binary: Array[Byte]): String =
     org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(binary)
-  }
 
-  def encodeBase64(binary: Array[Byte]): String = {
+  def encodeBase64(binary: Array[Byte]): String =
     org.apache.commons.codec.binary.Base64.encodeBase64String(binary)
-  }
 
-  def encodeBase64URLSafeAsBytes(string: String): Array[Byte] = {
+  def encodeBase64URLSafeAsBytes(string: String): Array[Byte] =
     org.apache.commons.codec.binary.Base64.encodeBase64URLSafe(string.getBytes("UTF-8"))
-  }
 }
 
 object Base64 extends Base64

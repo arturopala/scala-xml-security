@@ -1,2 +1,9 @@
 target/
 /.ensime
+.idea/
+!.scalafmt.conf
+.metals/
+.DS_Store
+.vscode/
+metals.sbt
+.bsp/

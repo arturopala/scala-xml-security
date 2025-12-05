@@ -10,23 +10,18 @@ startYear := Some(2016)
 
 description := "Scala XML Security - handy wrapper for org.apache.xml.security"
 
-scalaVersion := "2.12.4"
+scalaVersion := "3.3.4"
 
 libraryDependencies ++= Seq(
-  "commons-codec" % "commons-codec" % "1.11",
-  "org.apache.santuario" % "xmlsec" % "2.1.0",
-  "org.bouncycastle" % "bcprov-jdk15on" % "1.58",
-  "org.bouncycastle" % "bcpkix-jdk15on" % "1.58",
-  "org.json4s" %% "json4s-native" % "3.5.3",
-  "org.scalatest" %% "scalatest" % "3.0.4" % Test,
-  "org.scalacheck" %% "scalacheck" % "1.13.5" % Test
+  "commons-codec"        % "commons-codec"        % "1.12",
+  "org.apache.santuario" % "xmlsec"               % "2.1.3",
+  "org.bouncycastle"     % "bcprov-jdk18on"       % "1.83",
+  "org.bouncycastle"     % "bcpkix-jdk18on"       % "1.83",
+  "org.json4s"          %% "json4s-native"        % "4.0.7",
+  "jakarta.xml.bind"     % "jakarta.xml.bind-api" % "4.0.4",
+  "org.scalatest"       %% "scalatest"            % "3.2.19" % Test,
+  "org.scalacheck"      %% "scalacheck"           % "1.19.0" % Test
 )
-
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
-
-ScalariformKeys.preferences := PreferencesImporterExporter.loadPreferences(baseDirectory.value / "project" / "formatterPreferences.properties" toString)
 
 fork := true
 
@@ -34,9 +29,5 @@ connectInput in run := true
 
 outputStrategy := Some(StdoutOutput)
 
-import de.heikoseeberger.sbtheader.license.Apache2_0
-
-headers := Map(
-  "scala" -> Apache2_0("2016", "Artur Opala"),
-  "conf" -> Apache2_0("2016", "Artur Opala", "#")
-)
+scalafmtOnCompile in Compile := true
+scalafmtOnCompile in Test := true

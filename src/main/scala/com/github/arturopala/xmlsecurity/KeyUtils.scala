@@ -19,19 +19,18 @@ package com.github.arturopala.xmlsecurity
 import java.io._
 import java.security._
 import java.security.spec.{PKCS8EncodedKeySpec, X509EncodedKeySpec}
-import javax.xml.bind.DatatypeConverter
 
+import jakarta.xml.bind.DatatypeConverter
 import org.bouncycastle.openssl.{PEMParser, PEMWriter}
 
 trait KeyUtils extends Base64 {
 
-  def exportPublicKeyAsDER(publicKey: PublicKey): String = {
+  def exportPublicKeyAsDER(publicKey: PublicKey): String =
     DatatypeConverter.printBase64Binary(publicKey.getEncoded)
-  }
 
   def exportPrivateKeyAsPEM(privateKey: PrivateKey): String = {
     val pemStrWriter = new StringWriter();
-    val pemWriter = new PEMWriter(pemStrWriter);
+    val pemWriter    = new PEMWriter(pemStrWriter);
     pemWriter.writeObject(privateKey);
     pemWriter.flush();
     pemWriter.close();
@@ -42,19 +41,22 @@ trait KeyUtils extends Base64 {
   def parsePrivateKeyFromPEM(privateKeyString: String): PrivateKey = {
     Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
     val pemStrReader = new StringReader(privateKeyString)
-    val pemReader = new PEMParser(pemStrReader)
-    val keyPair = pemReader.readObject()
+    val pemReader    = new PEMParser(pemStrReader)
+    val keyPair      = pemReader.readObject()
     keyPair.asInstanceOf[KeyPair].getPrivate
   }
 
   def createKeyPairBase64AsDER(): (String, String) = {
     val (publicKey, privateKey) = createKeyPair()
 
-    (DatatypeConverter.printBase64Binary(publicKey.getEncoded), DatatypeConverter.printBase64Binary(privateKey.getEncoded))
+    (
+      DatatypeConverter.printBase64Binary(publicKey.getEncoded),
+      DatatypeConverter.printBase64Binary(privateKey.getEncoded)
+    )
   }
 
   def generateKeyPair(): KeyPair = {
-    val gen = KeyPairGenerator.getInstance("RSA")
+    val gen    = KeyPairGenerator.getInstance("RSA")
     val random = SecureRandom.getInstance("SHA1PRNG")
     gen.initialize(2048, random)
     gen.generateKeyPair()
@@ -67,13 +69,13 @@ trait KeyUtils extends Base64 {
 
   def parsePrivateKeyFromDER(privateKey: String): PrivateKey = {
     val keyFactory = KeyFactory.getInstance("RSA")
-    val keySpec = new PKCS8EncodedKeySpec(decodeBase64URLSafeAsBytes(privateKey))
+    val keySpec    = new PKCS8EncodedKeySpec(decodeBase64URLSafeAsBytes(privateKey))
     keyFactory.generatePrivate(keySpec)
   }
 
   def parsePublicKeyFromDER(publicKey: String): PublicKey = {
     val keyFactory = KeyFactory.getInstance("RSA")
-    val keySpec = new X509EncodedKeySpec(decodeBase64URLSafeAsBytes(publicKey))
+    val keySpec    = new X509EncodedKeySpec(decodeBase64URLSafeAsBytes(publicKey))
     keyFactory.generatePublic(keySpec)
   }
 
